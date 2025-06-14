@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Reservation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Books</h1>
+    <ul>
+        {% for book in books %}
+        <li>
+            <span>{{ book.title }} by {{ book.author }}</span>
+            <form action="/reserve/{{ book.id }}" method="post">
+                <button type="submit">Reserve</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
